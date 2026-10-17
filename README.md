@@ -60,6 +60,8 @@ Instale [Inno Setup 6](https://jrsoftware.org/isinfo.php), compile e empacote:
 
 `dist/` recebe o instalador, o ZIP portátil (somente app, configuração e README) e os checksums. Se o compilador estiver em outra pasta, informe `./package.ps1 -CompilerPath 'C:/caminho/ISCC.exe'`. Para compilar sem substituir o executável em uso, use `./build.ps1 -Test -OutputDirectory ./bin/check` e `./package.ps1 -BuildDirectory ./bin/check`.
 
+O ícone do executável, da bandeja e do instalador é `assets/OpenEmulator.ico`, com tamanhos de 16 a 256 px. Para recriá-lo, execute `./tools/Generate-Icon.ps1`; o script usa somente System.Drawing e também gera a prévia PNG.
+
 O [GitHub Actions](https://github.com/srviniaviz/open-emulator/actions/workflows/windows.yml) roda em pushes para `main`, pull requests e execução manual. Compila, executa os testes básicos, gera os pacotes e testa instalação e desinstalação em um runner Windows descartável. Os downloads ficam no artefato `OpenEmulator-Windows`, mantido por 30 dias. Os testes de integração com o SDK e da interface continuam locais: o CI não inicia emuladores Android.
 
 Para uma release, atualize as versões em `src/AssemblyInfo.cs`, faça commit e envie uma tag `v<versão>`, por exemplo `v0.1.0`. O CI verifica se a tag corresponde à versão do executável e só publica a release com os arquivos depois de passar pelos testes. Releases permanecem disponíveis após a expiração dos artefatos do CI.

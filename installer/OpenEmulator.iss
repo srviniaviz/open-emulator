@@ -24,6 +24,7 @@ OutputBaseFilename=OpenEmulator-{#AppVersion}-Setup
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
+SetupIconFile=..\assets\OpenEmulator.ico
 UninstallDisplayIcon={app}\OpenEmulator.exe
 CloseApplications=yes
 RestartApplications=no

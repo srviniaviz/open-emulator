@@ -49,7 +49,8 @@ namespace OpenEmulator
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.Manual;
             TopMost = true;
-            Icon = SystemIcons.Application;
+            using (var stream = typeof(Launcher).Assembly.GetManifestResourceStream("OpenEmulator.Icon.ico"))
+                Icon = new Icon(stream, SystemInformation.SmallIconSize);
             var layout = new TableLayoutPanel { Dock = DockStyle.Fill, Padding = new Padding(12), ColumnCount = 1, RowCount = 6 };
             layout.RowStyles.Add(new RowStyle(SizeType.Absolute, 28));
             layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
